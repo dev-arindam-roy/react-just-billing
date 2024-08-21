@@ -1,0 +1,16 @@
+.onex-text-content-right-align {
+    text-align: right;
+}
+.icon-adjust-2 {
+    margin-top: -2px;
+}
+.icon-adjust-10 {
+    margin-top: -10px;
+}
+.row-delete-icon-adjust {
+    font-size: 28px;
+    margin-top: 0px;
+}
+.row-delete-icon-adjust:hover {
+    cursor: pointer;
+}
