@@ -5,6 +5,22 @@
 # Check the Application, USE IT. It's FREE !!!
 [https://dev-arindam-roy.github.io/react-just-billing/](https://dev-arindam-roy.github.io/react-just-billing/)
 
+### Loging Screen
+![Screenshot 2024-08-24 225520](https://github.com/user-attachments/assets/62ef0da3-7d84-45d1-90ab-0703cb4e3d16)
+
+### Billing Screen
+![Screenshot 2024-08-24 225932](https://github.com/user-attachments/assets/e80efad4-037c-4b9e-bbef-9537d0163b2f)
+
+### Generate Bill
+![Screenshot 2024-08-24 230004](https://github.com/user-attachments/assets/32f7854e-eeb0-40e5-b728-d867e7d8a563)
+
+### Print or Save As PDF
+![Screenshot 2024-08-24 230033](https://github.com/user-attachments/assets/9e6ac5c5-d571-4c34-ac8b-4509dc5b7c7f)
+
+
+
+
+
 ```js
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
