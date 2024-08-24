@@ -18,9 +18,6 @@
 ![Screenshot 2024-08-24 230033](https://github.com/user-attachments/assets/9e6ac5c5-d571-4c34-ac8b-4509dc5b7c7f)
 
 
-
-
-
 ```js
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
