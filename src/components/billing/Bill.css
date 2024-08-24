@@ -14,3 +14,26 @@
 .row-delete-icon-adjust:hover {
     cursor: pointer;
 }
+.icon-adjust-4 {
+    margin-top: -4px;
+}
+.mouse-hover:hover {
+    cursor: pointer;
+}
+.bill-name {
+    text-transform: uppercase;
+    font-size: 18px;
+}
+.bill-print-header p {
+    line-height: 5px;
+    font-size: 12px;
+}
+.invoice-box {
+    font-size: 14px;
+}
+.bill-print-tbody, .bill-print-tfoot, .bill-print-thead {
+    font-size: 14px;
+}
+.number-text {
+    text-transform: capitalize;
+}
