@@ -25,6 +25,7 @@ import {
   FiSave,
   FiPrinter,
   FiX,
+  FiChevronsRight
 } from 'react-icons/fi';
 import { MdDelete } from 'react-icons/md';
 import { toast } from 'react-toastify';
@@ -271,6 +272,24 @@ const Bill = () => {
   const billModalCloseHandler = () => {
     setIsBillModalShow(false);
   };
+
+  const nextBillProceedHandler = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to proceed for next billing?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#0d6efd",
+      cancelButtonColor: "#dc3545",
+      confirmButtonText: "Yes"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setCustomerInfo(initCustomerInfo);
+        setBill(resetInitBillObj);
+        setIsBillModalShow(false);
+      }
+    });
+  }
 
   /** Biller Modal */
   const billerInfonButtonHandler = () => {
@@ -688,17 +707,11 @@ const Bill = () => {
                 </span>
               </p>
               <p>
-                <span className='bill-phno'>{billerInfo.phno}</span>{' '}
-                {billerInfo.email !== '' && (
-                  <span className='bill-email'> / {billerInfo.email}</span>
-                )}
-              </p>
-              <p>
-                <span className='bill-address'>{billerInfo.address}</span>
+                <span className='bill-address'><strong>Address:</strong> {billerInfo.address}</span>
               </p>
               {billerInfo.gst_no !== '' && (
                 <p>
-                  <span className='bill-gst'>GST No: {billerInfo.gst_no}</span>
+                  <span className='bill-gst'><strong>GST No:</strong> {billerInfo.gst_no}</span>
                 </p>
               )}
             </Col>
@@ -710,42 +723,51 @@ const Bill = () => {
               style={{ width: '50%' }}
             >
               <p>
-                <span className='bill-name'>
-                  <strong>{customerInfo.name}</strong>
-                </span>
+                <span className='bill-phno'><strong>Phone No:</strong> {billerInfo.phno}</span>{' '}
               </p>
               <p>
-                <span className='bill-phno'>{customerInfo.phno}</span>{' '}
-                {customerInfo.email !== '' && (
-                  <span className='bill-email'> / {customerInfo.email}</span>
+                {billerInfo.email !== '' && (
+                  <span className='bill-email'><strong>Email Id:</strong> {billerInfo.email}</span>
                 )}
-              </p>
-              <p>
-                <span className='bill-address'>{customerInfo.address}</span>
               </p>
             </Col>
           </Row>
           <hr />
-          <Row>
+          <Row className='bill-print-header'>
+            <Col md={6} style={{width: '50%'}}>
+              <p>
+                <span className='bill-name'>
+                  <strong>{customerInfo.name}</strong> 
+                </span>
+              </p>
+              <p>
+                <span className='bill-phno'><strong>Mobile No:</strong> {customerInfo.phno}</span>{' '}
+              </p>
+              {customerInfo.email !== '' && (
+                <p><span className='bill-email'><strong>Email:</strong> {customerInfo.email}</span></p>
+              )}
+              <p>
+                <span className='bill-address'><strong>Address:</strong> {customerInfo.address}</span>
+              </p>
+            </Col>
+            <Col md={6} className='onex-text-content-right-align' style={{width: '50%'}}>
+              <p>
+                <strong>Invoice No:</strong>{' '}
+                {Math.floor(Math.random() * (999999 - 100000 + 1)) +
+                  100000}
+              </p>
+              <p>
+                <strong>Date:</strong>{' '}
+                {new Date()
+                  .toLocaleDateString('en-GB')
+                  .replace(/\//g, '/')}
+              </p>
+            </Col>
+          </Row>
+          <Row className='mt-2'>
             <Col>
               <Table striped bordered hover size='sm' style={{ width: '100%' }}>
                 <thead className='bill-print-thead'>
-                  <tr>
-                    <td
-                      colSpan={5}
-                      className='invoice-box'
-                      style={{ textAlign: 'right' }}
-                    >
-                      <strong>Invoice No:</strong>{' '}
-                      {Math.floor(Math.random() * (999999 - 100000 + 1)) +
-                        100000}
-                      <br />
-                      <strong>Date:</strong>{' '}
-                      {new Date()
-                        .toLocaleDateString('en-GB')
-                        .replace(/\//g, '/')}
-                    </td>
-                  </tr>
                   <tr>
                     <th colSpan={5} style={{ backgroundColor: '#ddd' }}>
                       Bill Items
@@ -807,6 +829,9 @@ const Bill = () => {
         <Modal.Footer>
           <Button variant='danger' onClick={billModalCloseHandler}>
             <FiX className='icon-adjust-4' /> Close
+          </Button>
+          <Button variant='primary' onClick={nextBillProceedHandler}>
+            <FiChevronsRight className='icon-adjust-4' /> Next Bill
           </Button>
           <Button variant='success' onClick={handlePrint}>
             <FiPrinter className='icon-adjust-4' /> Print Bill
