@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-just-billing/static/css/main.65e1f4bc.css",
+    "main.css": "/react-just-billing/static/css/main.ea6a15d7.css",
     "main.js": "/react-just-billing/static/js/main.174234e6.js",
     "static/js/453.9785f0c0.chunk.js": "/react-just-billing/static/js/453.9785f0c0.chunk.js",
     "index.html": "/react-just-billing/index.html",
-    "main.65e1f4bc.css.map": "/react-just-billing/static/css/main.65e1f4bc.css.map",
+    "main.ea6a15d7.css.map": "/react-just-billing/static/css/main.ea6a15d7.css.map",
     "main.174234e6.js.map": "/react-just-billing/static/js/main.174234e6.js.map",
     "453.9785f0c0.chunk.js.map": "/react-just-billing/static/js/453.9785f0c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.65e1f4bc.css",
+    "static/css/main.ea6a15d7.css",
     "static/js/main.174234e6.js"
   ]
 }
